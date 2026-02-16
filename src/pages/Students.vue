@@ -157,10 +157,10 @@ const fetchUsers = async () => {
 
 // Convert API user to student format with ALL available data
 const convertToStudent = (user: User, index: number) => {
-  const student = {
+  return {
     id: user.id,
     name: user.name,
-    course: courses[index % courses.length],
+    course: courses[index % courses.length] as string, // Ensure string type
     year: (index % 4) + 1,
     email: user.email,
     phone: user.phone,
@@ -172,7 +172,6 @@ const convertToStudent = (user: User, index: number) => {
     enrollmentDate: 'September 2023',
     status: 'Active'
   }
-  return student
 }
 
 // Retry function
@@ -749,4 +748,4 @@ onMounted(() => {
     justify-content: center;
   }
 }
-</style>s
+</style>
